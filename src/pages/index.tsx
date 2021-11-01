@@ -5,9 +5,9 @@ import Card from '../components/Card'
 import Header from '../components/Header'
 import Menu from '../components/Menu'
 import ToDoItem from '../components/ToDoItem'
-import { GridCards, GridToDo } from 'src/style/indexPage.style/style'
+import { GridCards, GridToDo } from 'src/style/page/index.style'
 import { Container, ContainerIndex } from '../components/design/container'
-import * as S from '../style/indexPage.style/style'
+import * as S from 'src/style/page/index.style'
 
 const Home: NextPage = () => {
   const arr = [1, 1, 1, 1, 1, 1, 1, 1]

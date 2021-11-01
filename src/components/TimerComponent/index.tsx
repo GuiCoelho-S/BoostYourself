@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
-import { ButtonPlay } from 'src/style/pomodoro/style'
-import { BsFillPlayFill } from 'react-icons/bs'
+import { ButtonPlay } from 'src/style/page/pomodoro.style'
+import { BsFillPlayFill, BsPauseFill } from 'react-icons/bs'
 import * as S from './style'
 interface Props {
   timer: number
@@ -90,7 +90,7 @@ const TimerComponent: React.FC<Props> = ({ timer, modal, cycle, rest }) => {
           }}
         >
           <p>Pause</p>
-          <BsFillPlayFill />
+          <BsPauseFill />
         </ButtonPlay>
       ) : (
         <ButtonPlay
