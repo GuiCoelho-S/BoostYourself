@@ -8,30 +8,48 @@ import React, {
 } from 'react'
 import { lightBlue } from 'src/style/colors'
 
-const ModalNota: React.FC = () => {
-  const [title, setTitle] = useState<string>()
-  const [subTitle, setSubTitle] = useState<string>()
-  const [textArea, setTextArea] = useState<string>()
+interface Props {
+  modal: (e: boolean) => void
+}
+const ModalNota: React.FC<Props> = ({ modal }) => {
   const [colorPriority, setColorPriority] = useState<string>()
+  const [data, setData] = useState<object>({
+    title: '',
+    subTitle: '',
+    textArea: '',
+    color: ''
+  })
 
   const inputTitleRef = useRef<HTMLInputElement>(null)
   const inputSubtitleRef = useRef<HTMLInputElement>(null)
   const textAreaRef = useRef<HTMLTextAreaElement>(null)
 
+  useEffect(() => {
+    console.log(data)
+  }, [data])
   return (
     <S.Modal
       color={`${lightBlue}`}
       onSubmit={(e: FormEvent) => {
         e.preventDefault()
-        setTitle(inputTitleRef.current?.value)
-        setSubTitle(inputSubtitleRef.current?.value)
-        setTextArea(textAreaRef.current?.value)
+        setData({
+          title: inputTitleRef.current?.value,
+          subTitle: inputSubtitleRef.current?.value,
+          textArea: textAreaRef.current?.value,
+          color: colorPriority
+        })
+        modal(false)
       }}
     >
       <label htmlFor="title_input">Insira um título</label>
-      <S.Input type="text" id="title_input" ref={inputTitleRef} />
+      <S.Input type="text" id="title_input" required ref={inputTitleRef} />
       <label htmlFor="subtitle_input">Insira um subtítulo</label>
-      <S.Input type="text" id="subtitle_input" ref={inputSubtitleRef} />
+      <S.Input
+        type="text"
+        id="subtitle_input"
+        required
+        ref={inputSubtitleRef}
+      />
       <p>Escolha um grau de importância</p>
       <aside>
         <S.Item color={'#EB2B2B'}>
@@ -39,6 +57,7 @@ const ModalNota: React.FC = () => {
             type="radio"
             id="urgente"
             name="options"
+            checked
             onClick={(e: MouseEvent) => {
               setColorPriority('#EB2B2B')
             }}
@@ -71,12 +90,18 @@ const ModalNota: React.FC = () => {
         </S.Item>
       </aside>
       <span>Digite sua nota</span>
-      <textarea ref={textAreaRef} />
+      <textarea required ref={textAreaRef} />
       <article>
-        <S.ButtonSend color={'#EB2B2B'}>Cancelar</S.ButtonSend>
-        <S.ButtonSend color={'#69CF7A'} type="submit">
+        <S.SendButton
+          type="button"
+          color={'#EB2B2B'}
+          onClick={(e: MouseEvent) => modal(false)}
+        >
+          Cancelar
+        </S.SendButton>
+        <S.SendButton color={'#69CF7A'} type="submit">
           Criar
-        </S.ButtonSend>
+        </S.SendButton>
       </article>
     </S.Modal>
   )

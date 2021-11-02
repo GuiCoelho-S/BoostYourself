@@ -32,7 +32,7 @@ const Menu: React.FC = () => {
           </S.Item>
         </Link>
 
-        <Link href="/src">
+        <Link href="/tasks">
           <S.Item>
             <FaTasks />
             <p>To do list</p>

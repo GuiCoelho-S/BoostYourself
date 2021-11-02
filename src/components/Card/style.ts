@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { grey300 } from 'src/style/colors'
 
 export const ContainerCard = styled.article`
-  width: 320px;
+  width: clamp(240px, 100%, 320px);
   display: flex;
   flex-direction: column;
   border: 1px solid;
@@ -19,11 +19,11 @@ export const ContainerCard = styled.article`
 
 export const HeaderCard = styled.header`
   border-radius: 20px 20px 0 0;
-  width: 300px;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 8px 10px;
+
   background-color: ${(props) => props.color};
   border: none;
   h2 {
@@ -31,6 +31,7 @@ export const HeaderCard = styled.header`
     font-style: bold;
     max-width: 260px;
     width: 100%;
+    padding: 5px 14px;
     overflow: hidden;
     text-overflow: ellipsis;
   }
@@ -38,6 +39,7 @@ export const HeaderCard = styled.header`
     width: 30px;
     height: 30px;
     fill: white;
+    padding-right: 10px;
   }
 `
 export const Subtitle = styled.h3`

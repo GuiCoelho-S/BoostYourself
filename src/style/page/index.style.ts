@@ -2,8 +2,10 @@ import styled from 'styled-components'
 
 export const ContainerContent = styled.main`
   display: flex;
+  padding-top: 30px;
   @media (max-width: 780px) {
     flex-direction: column-reverse;
+    padding: 10px 10px 100px 10px;
   }
 `
 

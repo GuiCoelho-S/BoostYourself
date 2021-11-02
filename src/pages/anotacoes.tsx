@@ -9,8 +9,15 @@ import Header from 'src/components/Header'
 import Menu from 'src/components/Menu'
 import { lightBlue } from 'src/style/colors'
 import * as S from 'src/style/page/anotacoes.style'
+import { useState, MouseEvent, KeyboardEvent } from 'react'
 
 const Anotacoes: NextPage = () => {
+  const [handleStateModal, setHandleStateModal] = useState(false)
+
+  const handleModal = (e: boolean) => {
+    setHandleStateModal(e)
+  }
+
   return (
     <Container>
       <Head>
@@ -29,15 +36,25 @@ const Anotacoes: NextPage = () => {
       <ContainerIndex>
         <Header />
         <S.ContainerAnotacoes>
-          <Button color={lightBlue}>Criar anotações</Button>
+          <Button
+            type="button"
+            color={lightBlue}
+            onClick={(e: MouseEvent) => handleModal(true)}
+          >
+            Criar anotações
+          </Button>
           <section>
             <Card />
             <Card />
             <Card />
           </section>
-          <S.ModalDiv>
-            <ModalNota />
-          </S.ModalDiv>
+          {handleStateModal ? (
+            <S.ModalDiv>
+              <ModalNota modal={handleModal} />
+            </S.ModalDiv>
+          ) : (
+            <></>
+          )}
         </S.ContainerAnotacoes>
       </ContainerIndex>
       <Menu />

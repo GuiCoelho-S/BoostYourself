@@ -11,13 +11,18 @@ export const ContainerAnotacoes = styled(ContainerContent)`
     padding-top: 60px;
     width: 100%;
     display: flex;
+    gap: 20px;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-evenly;
   }
 
-  button {
+  ${Button} {
     transform: translate(20px, 20px);
+
+    @media (max-width: 770px) {
+      transform: translate(0, 20px);
+    }
   }
 `
 

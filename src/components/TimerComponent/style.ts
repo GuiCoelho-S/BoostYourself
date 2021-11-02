@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Timer = styled.div`
-  width: clamp(260px, 100%, 300px);
+  width: clamp(240px, 90%, 300px);
   height: 300px;
   background-color: ${(props) => props.color};
   border-radius: 37px;

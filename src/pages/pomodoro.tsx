@@ -50,7 +50,7 @@ const Pomodoro: NextPage = () => {
 
       <ContainerIndex>
         <Header />
-        <ContainerContent>
+        <S.ContainerPomodoro>
           <TimerComponent
             timer={min}
             modal={showModal}
@@ -103,7 +103,7 @@ const Pomodoro: NextPage = () => {
               <></>
             )}
           </S.SettingTimer>
-        </ContainerContent>
+        </S.ContainerPomodoro>
       </ContainerIndex>
       <Menu />
     </Container>
