@@ -2,7 +2,12 @@
 
 import React, { useCallback, useRef } from 'react'
 import type { NextPage } from 'next'
-import { Container, ContainerIndex } from 'src/components/design/container'
+import {
+  Container,
+  ContainerIndex,
+  ContainerContent
+} from 'src/components/design/container'
+
 import Head from 'next/head'
 import Header from 'src/components/Header'
 import Menu from 'src/components/Menu'
@@ -45,7 +50,7 @@ const Pomodoro: NextPage = () => {
 
       <ContainerIndex>
         <Header />
-        <S.ContainerContent>
+        <ContainerContent>
           <TimerComponent
             timer={min}
             modal={showModal}
@@ -98,7 +103,7 @@ const Pomodoro: NextPage = () => {
               <></>
             )}
           </S.SettingTimer>
-        </S.ContainerContent>
+        </ContainerContent>
       </ContainerIndex>
       <Menu />
     </Container>

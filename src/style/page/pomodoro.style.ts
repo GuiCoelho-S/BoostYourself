@@ -1,19 +1,6 @@
 import styled from 'styled-components'
 import { grey300 } from 'src/style/colors'
 
-export const ContainerContent = styled.main`
-  display: flex;
-  height: 100%;
-  justify-content: center;
-  gap: 20px;
-  @media (max-width: 780px) {
-    flex-direction: column;
-    align-items: center;
-  }
-  @media (max-width: 480px) {
-    padding: 40px 20px 100px 20px;
-  }
-`
 export const Timer = styled.div`
   width: 300px;
   height: 300px;

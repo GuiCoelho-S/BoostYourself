@@ -25,7 +25,7 @@ const Menu: React.FC = () => {
           </S.Item>
         </Link>
 
-        <Link href="/src">
+        <Link href="/anotacoes">
           <S.Item>
             <BsJournalBookmarkFill />
             <p>Anotações</p>
