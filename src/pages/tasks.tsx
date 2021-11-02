@@ -4,6 +4,8 @@ import * as S from 'src/style/page/tasks.style'
 import Head from 'next/head'
 import Header from 'src/components/Header'
 import Menu from 'src/components/Menu'
+import ModalTask from 'src/components/ModalTask'
+import ToDoItem from 'src/components/ToDoItem'
 
 const Tasks: React.FC = () => {
   return (
@@ -24,8 +26,25 @@ const Tasks: React.FC = () => {
       <ContainerIndex>
         <Header />
         <S.ContainerTasks>
-          <h1>Hello world</h1>
-          <h2>aushuash</h2>
+          <ModalTask />
+          <aside>
+            <span></span>
+            <h2>Tarefas</h2>
+            <S.GridTasks>
+              <ToDoItem />
+              <ToDoItem />
+              <ToDoItem />
+              <ToDoItem />
+              <ToDoItem />
+              <ToDoItem />
+              <ToDoItem />
+              <ToDoItem />
+              <ToDoItem />
+              <ToDoItem />
+              <ToDoItem />
+              <ToDoItem />
+            </S.GridTasks>
+          </aside>
         </S.ContainerTasks>
       </ContainerIndex>
       <Menu />
