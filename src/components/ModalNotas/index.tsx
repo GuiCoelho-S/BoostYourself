@@ -7,6 +7,7 @@ import React, {
   MouseEvent
 } from 'react'
 import { lightBlue } from 'src/style/colors'
+import useGlobalColor from 'src/hooks/globalColor'
 
 interface Props {
   modal: (e: boolean) => void
@@ -20,6 +21,7 @@ const ModalNota: React.FC<Props> = ({ modal }) => {
     color: ''
   })
 
+  const globalColor = useGlobalColor()
   const inputTitleRef = useRef<HTMLInputElement>(null)
   const inputSubtitleRef = useRef<HTMLInputElement>(null)
   const textAreaRef = useRef<HTMLTextAreaElement>(null)
@@ -29,7 +31,7 @@ const ModalNota: React.FC<Props> = ({ modal }) => {
   }, [data])
   return (
     <S.Modal
-      color={`${lightBlue}`}
+      color={globalColor}
       onSubmit={(e: FormEvent) => {
         e.preventDefault()
         setData({

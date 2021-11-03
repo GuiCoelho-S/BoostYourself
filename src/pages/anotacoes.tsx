@@ -10,9 +10,11 @@ import Menu from 'src/components/Menu'
 import { lightBlue } from 'src/style/colors'
 import * as S from 'src/style/page/anotacoes.style'
 import { useState, MouseEvent, KeyboardEvent } from 'react'
+import useGlobalColor from 'src/hooks/globalColor'
 
 const Anotacoes: NextPage = () => {
   const [handleStateModal, setHandleStateModal] = useState(false)
+  const globalColor = useGlobalColor()
 
   const handleModal = (e: boolean) => {
     setHandleStateModal(e)
@@ -38,7 +40,7 @@ const Anotacoes: NextPage = () => {
         <S.ContainerAnotacoes>
           <Button
             type="button"
-            color={lightBlue}
+            color={globalColor}
             onClick={(e: MouseEvent) => handleModal(true)}
           >
             Criar anotações

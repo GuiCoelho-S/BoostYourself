@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef } from 'react'
 import { ButtonPlay } from 'src/style/page/pomodoro.style'
 import { BsFillPlayFill, BsPauseFill } from 'react-icons/bs'
 import * as S from './style'
+import useGlobalColor from 'src/hooks/globalColor'
+
 interface Props {
   timer: number
   modal: any
@@ -9,6 +11,7 @@ interface Props {
   rest: number
 }
 const TimerComponent: React.FC<Props> = ({ timer, modal, cycle, rest }) => {
+  const globalColor = useGlobalColor()
   const timerRef = useRef<HTMLDivElement>(null)
   const [currentCycle, setCurrentCycle] = useState(1)
   const [number, setNumber] = useState(0)
@@ -30,7 +33,7 @@ const TimerComponent: React.FC<Props> = ({ timer, modal, cycle, rest }) => {
   useEffect(() => {
     function timeWork() {
       if (initial === true && screen == true) {
-        timerRef.current!.style.backgroundColor = '#94E7FA'
+        timerRef.current!.style.backgroundColor = globalColor
 
         if (workTime > 0) setTimeout(() => setWorkTime(workTime - 1), 20)
         if (workTime === 0) {
@@ -59,6 +62,7 @@ const TimerComponent: React.FC<Props> = ({ timer, modal, cycle, rest }) => {
       }
     }
     timeWork()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
     workTime,
     restTime,
@@ -72,7 +76,7 @@ const TimerComponent: React.FC<Props> = ({ timer, modal, cycle, rest }) => {
   ])
 
   return (
-    <S.Timer ref={timerRef} color={'#94E7FA'}>
+    <S.Timer ref={timerRef} color={globalColor}>
       {screen ? (
         <S.Time>{`${min}:${sec}`}</S.Time>
       ) : (

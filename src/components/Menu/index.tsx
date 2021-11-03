@@ -7,10 +7,14 @@ import * as S from './style'
 import { MdSpaceDashboard } from 'react-icons/md'
 import { BsFillStopwatchFill, BsJournalBookmarkFill } from 'react-icons/bs'
 import { FaTasks } from 'react-icons/fa'
+import useGlobalColor from 'src/hooks/globalColor'
+
 const Menu: React.FC = () => {
+  const globalColorA = useGlobalColor()
+
   return (
     <S.Container color={'#000'}>
-      <S.ContainerMenu color={'#94E7FA'}>
+      <S.ContainerMenu color={globalColorA}>
         <Link href="/">
           <S.Item>
             <MdSpaceDashboard />

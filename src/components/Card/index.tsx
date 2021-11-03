@@ -2,10 +2,13 @@ import React, { memo } from 'react'
 import * as S from './style'
 import { GoAlert } from 'react-icons/go'
 import { AiOutlineDelete } from 'react-icons/ai'
+import useGlobalColor from 'src/hooks/globalColor'
 
 const Card: React.FC = () => {
+  const globalColor = useGlobalColor()
+
   return (
-    <S.ContainerCard color={'#94E7FA'}>
+    <S.ContainerCard color={globalColor}>
       <S.HeaderCard color={'#EB2B2B'}>
         <h2>Título da página</h2>
         <GoAlert />
