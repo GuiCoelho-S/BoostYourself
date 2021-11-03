@@ -43,7 +43,8 @@ export const Item = styled.article`
     fill: #ffffff;
   }
   p {
-    color: ${c.grey300};
+    color: white;
+    font-weight: bold;
     font-size: 1.2rem;
   }
   @media (max-width: 600px) {

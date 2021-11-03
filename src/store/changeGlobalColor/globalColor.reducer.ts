@@ -4,7 +4,7 @@ interface GlobalColor {
     payload: string
 }
 
-const initialColor = '#94E7FA'
+const initialColor = '#16d6c8'
 
 const globalColorReducer = (state: string = initialColor, action: GlobalColor) => {
 

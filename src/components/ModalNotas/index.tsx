@@ -6,7 +6,6 @@ import React, {
   useEffect,
   MouseEvent
 } from 'react'
-import { lightBlue } from 'src/style/colors'
 import useGlobalColor from 'src/hooks/globalColor'
 
 interface Props {

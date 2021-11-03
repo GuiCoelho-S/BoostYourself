@@ -4,23 +4,26 @@ import * as S from './style'
 import { AiOutlineDelete } from 'react-icons/ai'
 import useGlobalColor from 'src/hooks/globalColor'
 
-const ToDoItem: React.FC = () => {
+interface Props {
+  text: string
+}
+const ToDoItem: React.FC<Props> = ({ text }) => {
   const [select, setSelect] = useState(false)
-  const text = useRef<HTMLDivElement>(null)
+  const textStyle = useRef<HTMLDivElement>(null)
   const globalColor = useGlobalColor()
 
   useEffect(() => {
     if (select === true) {
-      text.current!.style.textDecorationLine = 'line-through'
+      textStyle.current!.style.textDecorationLine = 'line-through'
     } else {
-      text.current!.style.textDecorationLine = 'none'
+      textStyle.current!.style.textDecorationLine = 'none'
     }
   }, [select])
 
   return (
     <S.ContainerToDo color={globalColor}>
       <input type="checkbox" onClick={() => setSelect(!select)} />
-      <p ref={text}>Fazer as tarefas dia</p>
+      <p ref={textStyle}>{text}</p>
       <S.deleteToDo>
         <AiOutlineDelete />
       </S.deleteToDo>

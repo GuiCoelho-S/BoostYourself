@@ -6,8 +6,12 @@ import Header from 'src/components/Header'
 import Menu from 'src/components/Menu'
 import ModalTask from 'src/components/ModalTask'
 import ToDoItem from 'src/components/ToDoItem'
+import { useSelector } from 'react-redux'
+import { RootState } from 'src/store'
 
 const Tasks: React.FC = () => {
+  const totalTasks = useSelector((state: RootState) => state.globalTasks)
+
   return (
     <Container>
       <Head>
@@ -31,18 +35,9 @@ const Tasks: React.FC = () => {
             <span></span>
             <h2>Tarefas</h2>
             <S.GridTasks>
-              <ToDoItem />
-              <ToDoItem />
-              <ToDoItem />
-              <ToDoItem />
-              <ToDoItem />
-              <ToDoItem />
-              <ToDoItem />
-              <ToDoItem />
-              <ToDoItem />
-              <ToDoItem />
-              <ToDoItem />
-              <ToDoItem />
+              {totalTasks.map((item) => (
+                <ToDoItem key={item.text} text={item.text} />
+              ))}
             </S.GridTasks>
           </aside>
         </S.ContainerTasks>

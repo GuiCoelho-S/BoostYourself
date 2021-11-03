@@ -19,6 +19,9 @@ export const ContainerAnotacoes = styled(ContainerContent)`
 
   ${Button} {
     transform: translate(20px, 20px);
+    color: white;
+    font-weight: bold;
+    font-size: 1.5rem;
 
     @media (max-width: 770px) {
       transform: translate(0, 20px);

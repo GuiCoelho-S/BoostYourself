@@ -1,4 +1,4 @@
-import React, { memo } from 'react'
+import React, { memo, useEffect, useRef } from 'react'
 import * as S from './style'
 import { GoAlert } from 'react-icons/go'
 import { AiOutlineDelete } from 'react-icons/ai'
@@ -6,9 +6,10 @@ import useGlobalColor from 'src/hooks/globalColor'
 
 const Card: React.FC = () => {
   const globalColor = useGlobalColor()
+  const containerRef = useRef<HTMLDivElement>(null)
 
   return (
-    <S.ContainerCard color={globalColor}>
+    <S.ContainerCard color={globalColor} ref={containerRef}>
       <S.HeaderCard color={'#EB2B2B'}>
         <h2>Título da página</h2>
         <GoAlert />

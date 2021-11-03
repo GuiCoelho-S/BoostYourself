@@ -12,20 +12,24 @@ const ColorTheme: React.FC = () => {
   return (
     <S.Container>
       <S.btnColor
-        color={'#94E7FA'}
-        onClick={(e: MouseEvent) => changeColor('#94E7FA')}
+        color={'#16d6c8'}
+        onClick={(e: MouseEvent) => changeColor('#16d6c8')}
       />
       <S.btnColor
-        color={'#FFD3FB'}
-        onClick={(e: MouseEvent) => changeColor('#FFD3FB')}
+        color={'#ee9554'}
+        onClick={(e: MouseEvent) => changeColor('#ee9554')}
       />
       <S.btnColor
-        color={'#E48585'}
-        onClick={(e: MouseEvent) => changeColor('#E48585')}
+        color={'#1a7175'}
+        onClick={(e: MouseEvent) => changeColor('#1a7175')}
       />
       <S.btnColor
-        color={'#B6DC86'}
-        onClick={(e: MouseEvent) => changeColor('#B6DC86')}
+        color={'#453485'}
+        onClick={(e: MouseEvent) => changeColor('#453485')}
+      />
+      <S.btnColor
+        color={'#545454'}
+        onClick={(e: MouseEvent) => changeColor('#545454')}
       />
     </S.Container>
   )

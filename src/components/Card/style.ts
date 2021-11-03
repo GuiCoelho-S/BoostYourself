@@ -7,13 +7,15 @@ export const ContainerCard = styled.article`
   flex-direction: column;
   border: 1px solid;
   border-color: ${grey300};
-  background-color: ${(props) => props.color};
+  background-color: whitesmoke;
   border-style: inset;
   padding-bottom: 10px;
   border-radius: 20px;
   p {
     padding: 20px 20px 0 20px;
-    font-size: 1rem;
+    font-size: 1.2rem;
+    color: ${(props) => props.color};
+    font-weight: bold;
   }
 `
 
@@ -21,7 +23,7 @@ export const HeaderCard = styled.header`
   border-radius: 20px 20px 0 0;
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space - between;
   align-items: center;
 
   background-color: ${(props) => props.color};
@@ -43,12 +45,13 @@ export const HeaderCard = styled.header`
   }
 `
 export const Subtitle = styled.h3`
-  font-size: 1rem;
+  font-size: 1.3rem;
   text-align: right;
   padding: 8px 10px 0 0;
 `
 
 export const deleteItem = styled.button`
+  margin-top: 5px;
   margin-right: 10px;
   align-self: flex-end;
   width: 45px;

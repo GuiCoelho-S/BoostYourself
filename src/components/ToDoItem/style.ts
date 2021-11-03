@@ -16,6 +16,8 @@ export const ContainerToDo = styled.article`
     height: 20px;
   }
   p {
+    color: white;
+    font-weight: bold;
     max-width: 200px;
     word-break: break-all;
   }

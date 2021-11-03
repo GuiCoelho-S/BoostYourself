@@ -20,7 +20,14 @@ export const ModalTaskDiv = styled.article`
       width: 80px;
       height: 40px;
       font-weight: bold;
-      color: white;
+      color: black;
+      border: 1px solid black;
+
+      :hover,
+      :focus {
+        border: 1px solid red;
+        color: #ff0000;
+      }
     }
   }
 
