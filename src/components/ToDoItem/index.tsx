@@ -3,14 +3,18 @@ import { useState, useEffect, useRef } from 'react'
 import * as S from './style'
 import { AiOutlineDelete } from 'react-icons/ai'
 import useGlobalColor from 'src/hooks/globalColor'
+import { removeTask } from 'src/store/getCard/getCard.actions'
+import { useDispatch } from 'react-redux'
 
 interface Props {
   text: string
+  id: string
 }
-const ToDoItem: React.FC<Props> = ({ text }) => {
+const ToDoItem: React.FC<Props> = ({ text, id }) => {
   const [select, setSelect] = useState(false)
   const textStyle = useRef<HTMLDivElement>(null)
   const globalColor = useGlobalColor()
+  const dispatch = useDispatch()
 
   useEffect(() => {
     if (select === true) {
@@ -24,7 +28,7 @@ const ToDoItem: React.FC<Props> = ({ text }) => {
     <S.ContainerToDo color={globalColor}>
       <input type="checkbox" onClick={() => setSelect(!select)} />
       <p ref={textStyle}>{text}</p>
-      <S.deleteToDo>
+      <S.deleteToDo onClick={() => dispatch(removeTask(id))}>
         <AiOutlineDelete />
       </S.deleteToDo>
     </S.ContainerToDo>

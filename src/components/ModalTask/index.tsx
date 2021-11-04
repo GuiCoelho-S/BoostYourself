@@ -12,7 +12,7 @@ const ModalTask: React.FC = () => {
 
   const dispatch = useDispatch()
   let textInput = ''
-  var id = uuidv4()
+  var id: string = uuidv4()
   return (
     <S.ModalTaskDiv color={globalColor}>
       <section>

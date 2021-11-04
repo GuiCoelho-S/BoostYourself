@@ -38,7 +38,7 @@ const Tasks: React.FC = () => {
             <h2>Tarefas</h2>
             <S.GridTasks>
               {totalTasks.map((item: any) => (
-                <ToDoItem key={item.id} text={item.textInput} />
+                <ToDoItem key={item.id} text={item.textInput} id={item.id} />
               ))}
             </S.GridTasks>
           </aside>

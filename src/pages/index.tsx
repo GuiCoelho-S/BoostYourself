@@ -15,7 +15,7 @@ const Home: NextPage = () => {
   const totalTasks: Array<object> = useSelector(
     (state: RootState) => state.globalTasks
   )
-  console.log(totalTasks)
+
   return (
     <Container>
       <Head>
@@ -39,7 +39,7 @@ const Home: NextPage = () => {
 
           <GridToDo>
             {totalTasks.map((item: any) => (
-              <ToDoItem text={item.textInput} key={item.id} />
+              <ToDoItem text={item.textInput} key={item.id} id={item.id} />
             ))}
           </GridToDo>
         </S.ContainerContent>

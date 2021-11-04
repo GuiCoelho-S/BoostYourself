@@ -31,9 +31,15 @@ export const deleteToDo = styled(deleteItem)`
   align-self: center;
   width: 40px;
   height: 40px;
-  border: 1px solid pink;
+  border: 1px solid inherit;
+  cursor: pointer;
+  transition: all 0.4s ease;
   svg {
     width: 20px;
     height: 20px;
+  }
+
+  :hover {
+    filter: brightness(0.7);
   }
 `

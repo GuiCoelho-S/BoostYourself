@@ -6,3 +6,10 @@ export function addTask(textInput: string, id: string) {
         payload: { textInput, id }
     }
 }
+
+export function removeTask(id: string | undefined) {
+    return {
+        type: 'REMOVETASK',
+        payload: id
+    }
+}
