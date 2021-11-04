@@ -2,14 +2,18 @@
 
 interface AddTask {
     type: 'ADDTASK'
-    payload: Array<object>
+    payload: object
 }
 
-const tasksReducer = (state: Array<object> = [], action: AddTask) => {
+const tasksReducer = (state: Array<string> = [], action: AddTask) => {
 
     switch (action.type) {
         case 'ADDTASK':
-            return [...state, ...action.payload]
+
+            var toDoFilter = [...state, action.payload]
+
+            console.log(toDoFilter)
+            return toDoFilter
         default:
             return state
     }

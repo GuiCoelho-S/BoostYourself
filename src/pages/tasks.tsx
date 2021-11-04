@@ -10,8 +10,10 @@ import { useSelector } from 'react-redux'
 import { RootState } from 'src/store'
 
 const Tasks: React.FC = () => {
-  const totalTasks = useSelector((state: RootState) => state.globalTasks)
-
+  const totalTasks: Array<object> = useSelector(
+    (state: RootState) => state.globalTasks
+  )
+  console.log(totalTasks)
   return (
     <Container>
       <Head>
@@ -35,8 +37,8 @@ const Tasks: React.FC = () => {
             <span></span>
             <h2>Tarefas</h2>
             <S.GridTasks>
-              {totalTasks.map((item) => (
-                <ToDoItem key={item.text} text={item.text} />
+              {totalTasks.map((item: any) => (
+                <ToDoItem key={item.id} text={item.textInput} />
               ))}
             </S.GridTasks>
           </aside>

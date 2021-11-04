@@ -8,9 +8,14 @@ import ToDoItem from '../components/ToDoItem'
 import { GridCards, GridToDo } from 'src/style/page/index.style'
 import { Container, ContainerIndex } from '../components/design/container'
 import * as S from 'src/style/page/index.style'
+import { useSelector } from 'react-redux'
+import { RootState } from 'src/store'
 
 const Home: NextPage = () => {
-  const arr = [1, 1, 1, 1, 1, 1, 1, 1]
+  const totalTasks: Array<object> = useSelector(
+    (state: RootState) => state.globalTasks
+  )
+  console.log(totalTasks)
   return (
     <Container>
       <Head>
@@ -30,15 +35,11 @@ const Home: NextPage = () => {
       <ContainerIndex>
         <Header />
         <S.ContainerContent>
-          <GridCards>
-            {arr.map((index) => (
-              <Card key={index} />
-            ))}
-          </GridCards>
+          <GridCards></GridCards>
 
           <GridToDo>
-            {arr.map((index) => (
-              <ToDoItem key={index} />
+            {totalTasks.map((item: any) => (
+              <ToDoItem text={item.textInput} key={item.id} />
             ))}
           </GridToDo>
         </S.ContainerContent>

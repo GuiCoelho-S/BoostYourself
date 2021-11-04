@@ -3,12 +3,12 @@ import { deleteItem } from '../Card/style'
 
 export const ContainerToDo = styled.article`
   align-self: center;
-  max-width: 340px;
-  padding: 5px 10px;
+  width: clamp(280px, 80%, 300px);
+  padding: 5px 20px;
   border-radius: 10px;
   background-color: ${(props) => props.color};
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
   gap: 20px;
   input {
@@ -18,7 +18,7 @@ export const ContainerToDo = styled.article`
   p {
     color: white;
     font-weight: bold;
-    max-width: 200px;
+    max-width: 180px;
     word-break: break-all;
   }
   @media (max-width: 540px) {
@@ -27,6 +27,7 @@ export const ContainerToDo = styled.article`
 `
 
 export const deleteToDo = styled(deleteItem)`
+  translate: none;
   align-self: center;
   width: 40px;
   height: 40px;

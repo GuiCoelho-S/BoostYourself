@@ -1,8 +1,8 @@
 /* eslint-disable prettier/prettier */
 
-export function addTask(text: string) {
+export function addTask(textInput: string, id: string) {
     return {
         type: 'ADDTASK',
-        payload: [{ text }]
+        payload: { textInput, id }
     }
 }

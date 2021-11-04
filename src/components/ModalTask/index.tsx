@@ -3,13 +3,16 @@ import * as S from './style'
 import useGlobalColor from 'src/hooks/globalColor'
 import { useDispatch } from 'react-redux'
 import { addTask } from 'src/store/getCard/getCard.actions'
-import { MouseEvent, useRef } from 'react'
+import { MouseEvent, useState } from 'react'
+import { v4 as uuidv4 } from 'uuid'
 
 const ModalTask: React.FC = () => {
   const globalColor = useGlobalColor()
-  const textAreaRef = useRef<HTMLTextAreaElement>(null)
-  const dispatch = useDispatch()
+  const [textAreaValue, setTextAreaValue] = useState<string>('')
 
+  const dispatch = useDispatch()
+  let textInput = ''
+  var id = uuidv4()
   return (
     <S.ModalTaskDiv color={globalColor}>
       <section>
@@ -18,13 +21,20 @@ const ModalTask: React.FC = () => {
           color={`#fff`}
           type="button"
           onClick={(e: MouseEvent) => {
-            dispatch(addTask(textAreaRef.current!.value))
+            if (textAreaValue.length > 0) {
+              textInput = textAreaValue
+              dispatch(addTask(textInput, id))
+            }
           }}
         >
           Criar
         </Button>
       </section>
-      <textarea id="textarea-task" ref={textAreaRef} />
+      <textarea
+        id="textarea-task"
+        required
+        onChange={(e) => setTextAreaValue(e.target.value)}
+      />
     </S.ModalTaskDiv>
   )
 }
