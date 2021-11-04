@@ -14,8 +14,12 @@ export const HeaderStyle = styled.header`
     svg {
       width: 50px;
       height: 50px;
+      fill: ${({ color }) => color};
     }
     @media (max-width: 880px) {
+      h1 {
+        font-size: 1.8rem;
+      }
     }
   }
 `
@@ -24,4 +28,5 @@ export const Title = styled.h1`
   font-size: 2.4rem;
   font-family: 'Rye', cursive;
   padding: 0 20px;
+  color: ${({ color }) => color};
 `

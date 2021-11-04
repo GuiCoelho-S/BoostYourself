@@ -23,11 +23,19 @@ export const Modal = styled.form`
   justify-content: space-evenly;
   padding: 10px 0 20px 0;
   animation: ${fadeModal} 1s ease;
+
+  * {
+    color: white;
+  }
   span,
   label {
     font-size: 1.2rem;
   }
 
+  input,
+  textarea {
+    color: black;
+  }
   p {
     padding: 6px 0 10px 14px;
     font-size: 1.1rem;
@@ -62,26 +70,6 @@ export const Modal = styled.form`
     outline: 1px solid red;
     border: 1px solid transparent;
   }
-
-  /*
-  @media (max-width: 900px) {
-    padding: 20px 0 40px 0;
-    p {
-      padding: 10px 20px 10px 5px;
-    }
-  }
-
-  article {
-    padding-top: 20px;
-  }
-
-  span {
-    padding: 10px 0 20px 10px;
-  }
-  input {
-    margin-top: 5px;
-  }
-  */
 `
 
 export const Item = styled.div`
@@ -96,6 +84,7 @@ export const Item = styled.div`
   label {
     font-size: 1.2rem;
     padding-left: 10px;
+    color: black;
   }
   input[type='radio'] {
     border-radius: 0px;

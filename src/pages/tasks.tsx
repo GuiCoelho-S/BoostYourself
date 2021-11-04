@@ -13,7 +13,6 @@ const Tasks: React.FC = () => {
   const totalTasks: Array<object> = useSelector(
     (state: RootState) => state.globalTasks
   )
-  console.log(totalTasks)
   return (
     <Container>
       <Head>

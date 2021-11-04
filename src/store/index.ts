@@ -3,10 +3,12 @@ import { createStore, combineReducers } from 'redux'
 
 import globalColorReducer from './changeGlobalColor/globalColor.reducer'
 import tasksReducer from './getCard/getCard.reducer'
+import notesReducer from './getNote/getNote.reducer'
 
 const rootReducer = combineReducers({
     globalColor: globalColorReducer,
-    globalTasks: tasksReducer
+    globalTasks: tasksReducer,
+    globalNotes: notesReducer
 })
 
 const store = createStore(rootReducer)

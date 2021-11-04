@@ -7,19 +7,25 @@ import ModalNota from 'src/components/ModalNotas'
 import { Container, ContainerIndex } from 'src/components/design/container'
 import Header from 'src/components/Header'
 import Menu from 'src/components/Menu'
-import { lightBlue } from 'src/style/colors'
 import * as S from 'src/style/page/anotacoes.style'
-import { useState, MouseEvent, KeyboardEvent } from 'react'
+import { useState, MouseEvent } from 'react'
 import useGlobalColor from 'src/hooks/globalColor'
+import { useSelector } from 'react-redux'
+import { RootState } from 'src/store'
 
 const Anotacoes: NextPage = () => {
   const [handleStateModal, setHandleStateModal] = useState(false)
   const globalColor = useGlobalColor()
 
+  const totalNotes: Array<object> = useSelector(
+    (state: RootState) => state.globalNotes
+  )
+
   const handleModal = (e: boolean) => {
     setHandleStateModal(e)
   }
 
+  console.log(totalNotes)
   return (
     <Container>
       <Head>
@@ -46,9 +52,15 @@ const Anotacoes: NextPage = () => {
             Criar anotações
           </Button>
           <section>
-            <Card />
-            <Card />
-            <Card />
+            {totalNotes.map((item: any) => (
+              <Card
+                key={item.id}
+                title={item.title}
+                subtitle={item.subtitle}
+                textarea={item.textarea}
+                color={item.color}
+              />
+            ))}
           </section>
           {handleStateModal ? (
             <S.ModalDiv>

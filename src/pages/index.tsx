@@ -16,6 +16,10 @@ const Home: NextPage = () => {
     (state: RootState) => state.globalTasks
   )
 
+  const totalNotes: Array<object> = useSelector(
+    (state: RootState) => state.globalNotes
+  )
+  console.log(totalTasks)
   return (
     <Container>
       <Head>
@@ -35,7 +39,17 @@ const Home: NextPage = () => {
       <ContainerIndex>
         <Header />
         <S.ContainerContent>
-          <GridCards></GridCards>
+          <GridCards>
+            {totalNotes.map((item: any) => (
+              <Card
+                key={item.id}
+                title={item.title}
+                subtitle={item.subtitle}
+                textarea={item.textarea}
+                color={item.color}
+              />
+            ))}
+          </GridCards>
 
           <GridToDo>
             {totalTasks.map((item: any) => (

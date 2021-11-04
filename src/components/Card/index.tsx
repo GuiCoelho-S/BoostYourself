@@ -4,25 +4,26 @@ import { GoAlert } from 'react-icons/go'
 import { AiOutlineDelete } from 'react-icons/ai'
 import useGlobalColor from 'src/hooks/globalColor'
 
-const Card: React.FC = () => {
+interface Props {
+  title: string
+  subtitle?: string
+  textarea: string
+  color: string
+}
+const Card: React.FC<Props> = ({ title, subtitle, textarea, color }) => {
   const globalColor = useGlobalColor()
   const containerRef = useRef<HTMLDivElement>(null)
 
   return (
     <S.ContainerCard color={globalColor} ref={containerRef}>
-      <S.HeaderCard color={'#EB2B2B'}>
-        <h2>Título da página</h2>
+      <S.HeaderCard color={color}>
+        <h2>{title}</h2>
         <GoAlert />
       </S.HeaderCard>
 
-      <S.Subtitle>Aqui será o subtítulo</S.Subtitle>
+      <S.Subtitle>{subtitle}</S.Subtitle>
 
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat.
-      </p>
+      <p>{textarea}</p>
 
       <S.deleteItem>
         <AiOutlineDelete color={'#94E7FA'} />

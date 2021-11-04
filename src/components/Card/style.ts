@@ -13,6 +13,8 @@ export const ContainerCard = styled.article`
   border-radius: 20px;
   p {
     padding: 20px 20px 0 20px;
+    width: 220px;
+    word-break: break-all;
     font-size: 1.2rem;
     color: ${(props) => props.color};
     font-weight: bold;

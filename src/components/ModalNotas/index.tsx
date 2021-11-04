@@ -1,56 +1,43 @@
 import * as S from './style'
-import React, {
-  useState,
-  useRef,
-  FormEvent,
-  useEffect,
-  MouseEvent
-} from 'react'
+import React, { useState, useRef, FormEvent } from 'react'
 import useGlobalColor from 'src/hooks/globalColor'
-
+import { addNote } from 'src/store/getNote/getNote.actions'
+import { v4 as uuidv4 } from 'uuid'
+import { useDispatch } from 'react-redux'
 interface Props {
   modal: (e: boolean) => void
 }
 const ModalNota: React.FC<Props> = ({ modal }) => {
   const [colorPriority, setColorPriority] = useState<string>()
-  const [data, setData] = useState<object>({
-    title: '',
-    subTitle: '',
-    textArea: '',
-    color: ''
-  })
 
   const globalColor = useGlobalColor()
   const inputTitleRef = useRef<HTMLInputElement>(null)
   const inputSubtitleRef = useRef<HTMLInputElement>(null)
   const textAreaRef = useRef<HTMLTextAreaElement>(null)
+  const dispatch = useDispatch()
 
-  useEffect(() => {
-    console.log(data)
-  }, [data])
+  var data: object = {
+    title: inputTitleRef.current?.value,
+    subtitle: inputSubtitleRef.current?.value,
+    textarea: textAreaRef.current?.value,
+    color: colorPriority,
+    id: uuidv4()
+  }
+
   return (
     <S.Modal
       color={globalColor}
       onSubmit={(e: FormEvent) => {
         e.preventDefault()
-        setData({
-          title: inputTitleRef.current?.value,
-          subTitle: inputSubtitleRef.current?.value,
-          textArea: textAreaRef.current?.value,
-          color: colorPriority
-        })
+        dispatch(addNote(data))
         modal(false)
+        console.log(textAreaRef.current)
       }}
     >
       <label htmlFor="title_input">Insira um título</label>
       <S.Input type="text" id="title_input" required ref={inputTitleRef} />
       <label htmlFor="subtitle_input">Insira um subtítulo</label>
-      <S.Input
-        type="text"
-        id="subtitle_input"
-        required
-        ref={inputSubtitleRef}
-      />
+      <S.Input type="text" id="subtitle_input" ref={inputSubtitleRef} />
       <p>Escolha um grau de importância</p>
       <aside>
         <S.Item color={'#EB2B2B'}>
@@ -58,9 +45,9 @@ const ModalNota: React.FC<Props> = ({ modal }) => {
             type="radio"
             id="urgente"
             name="options"
-            checked
-            onClick={(e: MouseEvent) => {
+            onClick={() => {
               setColorPriority('#EB2B2B')
+              console.log(data)
             }}
           />
           <label htmlFor="urgente">Urgente</label>
@@ -71,8 +58,9 @@ const ModalNota: React.FC<Props> = ({ modal }) => {
             type="radio"
             id="importante"
             name="options"
-            onClick={(e: MouseEvent) => {
+            onClick={() => {
               setColorPriority('#FADE7C')
+              console.log(data)
             }}
           />
           <label htmlFor="importante">Importante</label>
@@ -83,20 +71,21 @@ const ModalNota: React.FC<Props> = ({ modal }) => {
             type="radio"
             id="moderado"
             name="options"
-            onClick={(e: MouseEvent) => {
+            onClick={() => {
               setColorPriority('#B6DC86')
+              console.log(data)
             }}
           />
           <label htmlFor="moderado">Moderado</label>
         </S.Item>
       </aside>
       <span>Digite sua nota</span>
-      <textarea required ref={textAreaRef} />
+      <textarea id="textarea-note" ref={textAreaRef} />
       <article>
         <S.SendButton
           type="button"
           color={'#EB2B2B'}
-          onClick={(e: MouseEvent) => modal(false)}
+          onClick={() => modal(false)}
         >
           Cancelar
         </S.SendButton>
