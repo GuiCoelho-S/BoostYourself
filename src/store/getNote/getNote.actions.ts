@@ -7,9 +7,9 @@ export function addNote(data: object) {
     }
 }
 
-export function removeNote() {
+export function removeNote(id: string | undefined) {
     return {
         type: "REMOVENOTE",
-        payload: {}
+        payload: id
     }
 }

@@ -1,16 +1,16 @@
 /* eslint-disable prettier/prettier */
 
-interface AddTask {
+interface AddNote {
     type: 'ADDNOTE'
     payload: object
 }
 
-interface RemoveTask {
+interface RemoveNote {
     type: 'REMOVENOTE'
     payload: string
 }
 
-type Action = AddTask | RemoveTask
+type Action = AddNote | RemoveNote
 
 const notesReducer = (state: Array<string> = [], action: Action) => {
 

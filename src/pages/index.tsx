@@ -47,6 +47,7 @@ const Home: NextPage = () => {
                 subtitle={item.subtitle}
                 textarea={item.textarea}
                 color={item.color}
+                id={item.id}
               />
             ))}
           </GridCards>

@@ -20,7 +20,6 @@ export const ContainerContent = styled.main`
   height: 100%;
   justify-content: center;
   gap: 20px;
-  border: 1px solid red;
   @media (max-width: 780px) {
     flex-direction: column;
     align-items: center;

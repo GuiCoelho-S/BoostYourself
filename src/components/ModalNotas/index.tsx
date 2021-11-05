@@ -9,17 +9,16 @@ interface Props {
 }
 const ModalNota: React.FC<Props> = ({ modal }) => {
   const [colorPriority, setColorPriority] = useState<string>()
-
+  const [textAreaNote, setTextAreaNote] = useState<string>()
   const globalColor = useGlobalColor()
   const inputTitleRef = useRef<HTMLInputElement>(null)
   const inputSubtitleRef = useRef<HTMLInputElement>(null)
-  const textAreaRef = useRef<HTMLTextAreaElement>(null)
   const dispatch = useDispatch()
 
   var data: object = {
     title: inputTitleRef.current?.value,
     subtitle: inputSubtitleRef.current?.value,
-    textarea: textAreaRef.current?.value,
+    textarea: textAreaNote,
     color: colorPriority,
     id: uuidv4()
   }
@@ -31,7 +30,6 @@ const ModalNota: React.FC<Props> = ({ modal }) => {
         e.preventDefault()
         dispatch(addNote(data))
         modal(false)
-        console.log(textAreaRef.current)
       }}
     >
       <label htmlFor="title_input">Insira um título</label>
@@ -80,7 +78,10 @@ const ModalNota: React.FC<Props> = ({ modal }) => {
         </S.Item>
       </aside>
       <span>Digite sua nota</span>
-      <textarea id="textarea-note" ref={textAreaRef} />
+      <textarea
+        id="textarea-note"
+        onChange={(e) => setTextAreaNote(e.target.value)}
+      />
       <article>
         <S.SendButton
           type="button"

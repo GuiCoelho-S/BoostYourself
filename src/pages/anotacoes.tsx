@@ -59,6 +59,7 @@ const Anotacoes: NextPage = () => {
                 subtitle={item.subtitle}
                 textarea={item.textarea}
                 color={item.color}
+                id={item.id}
               />
             ))}
           </section>
