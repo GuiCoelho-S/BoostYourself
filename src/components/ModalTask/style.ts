@@ -14,7 +14,9 @@ export const ModalTaskDiv = styled.article`
     justify-content: space-between;
 
     label {
-      font-size: 1.2rem;
+      font-size: 1.4rem;
+      color: white;
+      font-weight: bold;
     }
     ${Button} {
       width: 80px;
