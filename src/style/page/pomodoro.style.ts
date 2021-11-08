@@ -146,6 +146,7 @@ export const Modal = styled.div`
     justify-content: space-evenly;
     padding: 0 10px;
     svg {
+      align-self: center;
       width: 80px;
       height: 80px;
       fill: #af1616;
