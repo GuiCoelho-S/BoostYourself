@@ -123,7 +123,7 @@ export const Input = styled.input`
 export const Modal = styled.div`
   position: absolute;
   width: clamp(300px, 100%, 400px);
-  height: 300px;
+  height: 100%;
   z-index: 1;
   background-color: rgba(255, 255, 255, 0.9);
   padding: 0 !important;

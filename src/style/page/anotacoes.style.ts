@@ -36,7 +36,7 @@ export const ModalDiv = styled.div`
   min-height: 100vh;
   background-color: rgb(196, 196, 196, 0.9);
   z-index: 1;
-  display: grid;
+  display: flex;
   align-items: flex-start;
   justify-content: center;
   padding-top: 20px;
