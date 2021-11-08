@@ -4,11 +4,17 @@ import { ContainerContent } from 'src/components/design/container'
 
 export const ContainerPomodoro = styled(ContainerContent)`
   align-items: center;
-
-  @media (max-width: 600px) {
-  }
+  flex-direction: column;
 `
-
+export const PomodoroFunction = styled.section`
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding-top: 40px;
+  padding-bottom: 60px;
+`
 export const ButtonPlay = styled.button`
   background-color: white;
   width: 120px;

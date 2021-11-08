@@ -16,6 +16,7 @@ import { AiFillSetting } from 'react-icons/ai'
 import { useState } from 'react'
 import TimerComponent from 'src/components/TimerComponent'
 import { IoAlertCircleSharp } from 'react-icons/io5'
+import PomodoroDescription from 'src/components/PomodoroDescription'
 
 const Pomodoro: NextPage = () => {
   const inputMinRef = useRef<HTMLInputElement>(null)
@@ -46,63 +47,72 @@ const Pomodoro: NextPage = () => {
           href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap"
           rel="stylesheet"
         />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Chango&display=swap "
+          rel="stylesheet"
+        />
       </Head>
 
       <ContainerIndex>
         <Header />
         <S.ContainerPomodoro>
-          <TimerComponent
-            timer={min}
-            modal={showModal}
-            cycle={cicle}
-            rest={rest}
-          />
+          <S.PomodoroFunction>
+            <TimerComponent
+              timer={min}
+              modal={showModal}
+              cycle={cicle}
+              rest={rest}
+            />
 
-          <S.SettingTimer>
-            <header>
-              <h2>Configurações</h2>
-              <AiFillSetting />
-            </header>
+            <S.SettingTimer>
+              <header>
+                <h2>Configurações</h2>
+                <AiFillSetting />
+              </header>
 
-            <div>
-              <label htmlFor="ipt-time">Quantos minutos por ciclo: </label>
-              <S.Input type="number" id="ipt-time" ref={inputMinRef} />
-              <span>min</span>
-            </div>
+              <div>
+                <label htmlFor="ipt-time">Quantos minutos por ciclo: </label>
+                <S.Input type="number" id="ipt-time" ref={inputMinRef} />
+                <span>min</span>
+              </div>
 
-            <div>
-              <label htmlFor="ipt-ciclo">Quantidade de ciclos: </label>
-              <S.Input type="number" id="ipt-ciclo" ref={inputCicleRef} />
-              <span>ciclos</span>
-            </div>
+              <div>
+                <label htmlFor="ipt-ciclo">Quantidade de ciclos: </label>
+                <S.Input type="number" id="ipt-ciclo" ref={inputCicleRef} />
+                <span>ciclos</span>
+              </div>
 
-            <div>
-              <label htmlFor="ipt-ciclo">Tempo de descanso: </label>
-              <S.Input type="number" id="ipt-ciclo" ref={inputRestRef} />
-              <span>min</span>
-            </div>
+              <div>
+                <label htmlFor="ipt-ciclo">Tempo de descanso: </label>
+                <S.Input type="number" id="ipt-ciclo" ref={inputRestRef} />
+                <span>min</span>
+              </div>
 
-            <S.ButtonPlay
-              type="submit"
-              onClick={() => {
-                setMin(Number(inputMinRef.current?.value) * 60)
-                setCicle(Number(inputCicleRef.current?.value))
-                setRest(Number(inputRestRef.current?.value) * 60)
-              }}
-            >
-              Enviar
-            </S.ButtonPlay>
-            {modal ? (
-              <S.Modal>
-                <div>
-                  <IoAlertCircleSharp />
-                  <p>Para acessar novamente, pause o cronômetro</p>
-                </div>
-              </S.Modal>
-            ) : (
-              <></>
-            )}
-          </S.SettingTimer>
+              <S.ButtonPlay
+                type="submit"
+                onClick={() => {
+                  setMin(Number(inputMinRef.current?.value) * 60)
+                  setCicle(Number(inputCicleRef.current?.value))
+                  setRest(Number(inputRestRef.current?.value) * 60)
+                }}
+              >
+                Enviar
+              </S.ButtonPlay>
+              {modal ? (
+                <S.Modal>
+                  <div>
+                    <IoAlertCircleSharp />
+                    <p>Para acessar novamente, pause o cronômetro</p>
+                  </div>
+                </S.Modal>
+              ) : (
+                <></>
+              )}
+            </S.SettingTimer>
+          </S.PomodoroFunction>
+          <PomodoroDescription />
         </S.ContainerPomodoro>
       </ContainerIndex>
       <Menu />

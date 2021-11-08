@@ -56,6 +56,7 @@ const TimerComponent: React.FC<Props> = ({ timer, modal, cycle, rest }) => {
     if (workTime === 0) {
       setWorkMode(false)
       setRestMode(true)
+      setAudio(true)
     }
   }
 

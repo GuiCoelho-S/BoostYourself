@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
+import { grey300 } from './colors'
 
 export default createGlobalStyle`
 * {
@@ -11,8 +12,19 @@ export default createGlobalStyle`
 body {
     background-color:whitesmoke;
     color:white;
-    a {
+    a { 
         text-decoration:none;
+        padding:0;
+        transition:all 0.3s;
+        outline:1px solid transparent;
+        border-bottom:1px solid transparent;
+
+
+        :hover,:focus{
+            outline:1px solid transparent;
+            border-bottom:1px solid lightgrey;
+            color:red;
+        }
     }
 }
 `
