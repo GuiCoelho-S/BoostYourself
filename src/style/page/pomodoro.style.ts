@@ -10,6 +10,7 @@ export const PomodoroFunction = styled.section`
   width: 100%;
   display: flex;
   justify-content: space-evenly;
+  align-items: center;
   flex-wrap: wrap;
   gap: 20px;
   padding-top: 40px;
