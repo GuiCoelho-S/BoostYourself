@@ -6,6 +6,7 @@ import * as S from './style'
 import useGlobalColor from 'src/hooks/globalColor'
 import { BsCheck2Circle } from 'react-icons/bs'
 import { VscDebugRestart } from 'react-icons/vsc'
+
 interface Props {
   timer: number
   modal: (arg0: boolean) => void
@@ -31,6 +32,8 @@ const TimerComponent: React.FC<Props> = ({ timer, modal, cycle, rest }) => {
   const [showPauseButton, setPauseShowButton] = useState(true)
 
   const containerRef = useRef<HTMLDivElement>(null)
+  const audioRef = useRef<HTMLAudioElement>(null)
+  const [audio, setAudio] = useState(false)
 
   useEffect(() => {
     setWorkTime(timer)
@@ -73,6 +76,7 @@ const TimerComponent: React.FC<Props> = ({ timer, modal, cycle, rest }) => {
         setRestMode(false)
         setWorkTime(timer)
         setRestTime(rest)
+        setAudio(true)
       }
     }
   }
@@ -89,9 +93,24 @@ const TimerComponent: React.FC<Props> = ({ timer, modal, cycle, rest }) => {
   useEffect(() => {
     if (counter === cycle) {
       setPomodoro(pomodoro + 1)
-      setCounter(0)
+      setCounter(1)
     }
   }, [counter])
+
+  useEffect(() => {
+    const PlayAudio = () => {
+      if (audio === true) {
+        audioRef.current?.play().then(() =>
+          setTimeout(() => {
+            setAudio(false)
+          }, 7000)
+        )
+      } else {
+        audioRef.current?.load()
+      }
+    }
+    PlayAudio()
+  }, [audio])
   return (
     <S.Timer color={globalColor} ref={containerRef}>
       {restart === true ? (
@@ -122,7 +141,7 @@ const TimerComponent: React.FC<Props> = ({ timer, modal, cycle, rest }) => {
           {showPauseButton === true ? (
             <ButtonPlay
               onClick={(e: MouseEvent) => {
-                if (workTime > 0 && restTime > 0) {
+                if (workTime > 0 || restTime > 0) {
                   modal(false)
                   setRun(false)
                   setPauseShowButton(false)
@@ -135,7 +154,7 @@ const TimerComponent: React.FC<Props> = ({ timer, modal, cycle, rest }) => {
           ) : (
             <ButtonPlay
               onClick={(e: MouseEvent) => {
-                if (workTime > 0 && restTime > 0) {
+                if (workTime > 0 || restTime > 0) {
                   modal(true)
                   setRun(true)
                   setPauseShowButton(true)
@@ -148,6 +167,11 @@ const TimerComponent: React.FC<Props> = ({ timer, modal, cycle, rest }) => {
           )}
         </>
       )}
+
+      <audio
+        ref={audioRef}
+        src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3"
+      ></audio>
     </S.Timer>
   )
 }
