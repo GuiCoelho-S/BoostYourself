@@ -7,7 +7,7 @@ export const Container = styled.div`
   background-color: ${(props) => props.color};
   width: 200px;
   @media (max-width: 600px) {
-    bottom: 0;
+    top: calc(100vh - 80px);
     position: fixed;
     height: 80px;
     width: 100%;

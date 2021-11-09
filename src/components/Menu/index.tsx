@@ -13,7 +13,7 @@ const Menu: React.FC = () => {
   const globalColorA = useGlobalColor()
 
   return (
-    <S.Container color={'#000'}>
+    <S.Container color={'transparent'}>
       <S.ContainerMenu color={globalColorA}>
         <Link href="/">
           <S.Item>
