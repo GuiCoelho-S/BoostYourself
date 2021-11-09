@@ -73,6 +73,9 @@ export const Container = styled.article`
       justify-content: center;
     }
   }
+  @media (max-width: 600px) {
+    padding-bottom: 80px;
+  }
 `
 
 export const Aside = styled.aside`
