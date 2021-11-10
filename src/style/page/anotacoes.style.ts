@@ -10,11 +10,11 @@ export const ContainerAnotacoes = styled(ContainerContent)`
   section {
     padding-top: 60px;
     width: 100%;
-    display: flex;
+    display: grid;
     gap: 20px;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-evenly;
+    justify-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(320px, auto));
+    grid-template-rows: auto;
   }
 
   ${Button} {

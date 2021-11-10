@@ -39,19 +39,20 @@ const Home: NextPage = () => {
       <ContainerIndex>
         <Header />
         <S.ContainerContent>
-          <GridCards>
-            {totalNotes.map((item: any) => (
-              <Card
-                key={item.id}
-                title={item.title}
-                subtitle={item.subtitle}
-                textarea={item.textarea}
-                color={item.color}
-                id={item.id}
-              />
-            ))}
-          </GridCards>
-
+          <div>
+            <GridCards>
+              {totalNotes.map((item: any) => (
+                <Card
+                  key={item.id}
+                  title={item.title}
+                  subtitle={item.subtitle}
+                  textarea={item.textarea}
+                  color={item.color}
+                  id={item.id}
+                />
+              ))}
+            </GridCards>
+          </div>
           <GridToDo>
             {totalTasks.map((item: any) => (
               <ToDoItem text={item.textInput} key={item.id} id={item.id} />

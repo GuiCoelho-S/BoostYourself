@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import * as c from 'src/style/colors'
 
 export const Container = styled.div`
   z-index: 2;
